@@ -6,11 +6,13 @@ module Batman
       requires_app_name
 
       desc "This generator creates a Batman model"
-      argument :attributes, :type => :array, :default => [], :banner => "field:type field:type"
+      argument :attributes, type: :array, default: [], banner: "field:type field:type"
 
       def create_batman_model
         with_app_name do
-          template "batman/model.coffee", "#{app_path}/models/#{singular_table_name.downcase}.js.coffee"
+          template "batman/model.coffee",      "#{app_path}/models/#{singular_table_name.downcase}.js.coffee"
+          template "batman/model_test.coffee", "#{app_path}/test/models/#{singular_table_name.downcase}_test.js.coffee"
+          template "batman/fixture.coffee",    "#{app_path}/test/fixtures/#{singular_table_name.downcase}.js.coffee"
         end
       end
 
