@@ -7,7 +7,7 @@ class <%= js_application_name %>.<%= singular_model_name %>Test extends Batman.M
 
 <% attributes.each do |attribute| -%>
   @test <%= render_attribute(attribute) %>, ->
-    @assetEqual <%= render_attribute(attribute) %>, @<%= singular_model_name.downcase %>.get(<%= render_attribute(attribute) %>)
+    @assetEqual <%= render_attribute_value(attribute) %>, @<%= singular_model_name.downcase %>.get(<%= render_attribute(attribute) %>)
 <% end -%>
 
   @test "TODO", ->

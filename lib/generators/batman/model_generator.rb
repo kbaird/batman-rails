@@ -26,6 +26,9 @@ module Batman
 
         ["'#{attribute.name}'", type].compact.join(', ')
       end
+      def render_attribute_value(attribute)
+        "'the-#{attribute.name}-value'"
+      end
     end
   end
 end
